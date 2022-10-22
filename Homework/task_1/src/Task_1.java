@@ -1,21 +1,22 @@
 public class Task_1 implements Task_1_base {
     public int subtask_1_if(int first, int second, int third) {
-        if ((first<second) && (first<third)) {
-            System.out.println(first);
-        } else if ((second<first) && (second<third)) {
-            System.out.println(second);
-        }
-        else {
-            System.out.println(third);
-        }
-        return 0; // Замените данный оператор кодом, решающим поставленную задачу.
+        // Вычислить и вернуть минимальный из трех полученных аргументов (first, second, third)
+        // ------------------------------------------------------------------------------------
+        if (first < second && first < third)
+           return first;
+        else if (second < first && second < third)
+           return second;
+        else return third;
     }
 
     public boolean subtask_2_if(int year) {
         // Проверить, является ли год, переданный в параметре year, високосным.
         // Високосный год - это год, кратный четырем, но не кратный 100, либо кратный 400
         // ------------------------------------------------------------------------------------
-        return false; // Замените данный оператор кодом, решающим поставленную задачу.
+        if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0))
+            return true;
+        else
+            return false;
     }
 
     public int subtask_3_if(double x, double y, double left_up_x, double left_up_y, double width, double height) {
@@ -29,7 +30,16 @@ public class Task_1 implements Task_1_base {
         // 2 - аргументы функции заданы некорректно
         // Допустимой погрешностью при сравнении переменных типа double считать 0.000001
         // ------------------------------------------------------------------------------------
-        return 0; // Замените данный оператор кодом, решающим поставленную задачу.
+        if(width == height) {
+            if((left_up_x +width - x <= 0.000001 || x - left_up_x <= 0.000001) || (left_up_y-y <= 0.000001 || y - (left_up_y -height) <= 0.000001)) {
+                return 0;
+            } else if(x > left_up_x && x < left_up_x +width && y < left_up_y && y > left_up_y -height) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } else
+            return 2;
     }
 
     public int subtask_4_if(double x0, double y0, double k, double b) {
@@ -41,7 +51,14 @@ public class Task_1 implements Task_1_base {
         // 2 - лежит на прямой
         // Допустимой погрешностью при сравнении переменных типа double считать 0.000001
         // ------------------------------------------------------------------------------------
-        return 0; // Замените данный оператор кодом, решающим поставленную задачу.
+       if ((k*x0 + b) - y0 > 0.000001) {
+           return 1;
+       }
+       else if (y0 - (k*x0 + b) > 0.000001) {
+            return 0;
+       }
+       else
+           return 2;
     }
 
     public String subtask_5_switch(int day_od_week) {
@@ -49,7 +66,17 @@ public class Task_1 implements Task_1_base {
         // с большой буквы. Дни едели отсчитываются с единицы. Если номер задан некорректно,
         // вернуть строку "Ошибка"
         // ------------------------------------------------------------------------------------
-        return ""; // Замените данный оператор кодом, решающим поставленную задачу.
+        String days = switch (day_od_week){
+            case 1 -> "Понедельник";
+            case 2 -> "Вторник";
+            case 3 -> "Среда";
+            case 4 -> "Четверг";
+            case 5 -> "Пятница";
+            case 6 -> "Суббота";
+            case 7 -> "Воскресенье";
+            default -> "Ошибка";
+        };
+        return days;
     }
 
     public String subtask_6_switch(int direction) {
@@ -60,7 +87,14 @@ public class Task_1 implements Task_1_base {
         // 4 - восток
         // Во всех остальных случаях вернуть пустую строку
         // ------------------------------------------------------------------------------------
-        return ""; // Замените данный оператор кодом, решающим поставленную задачу.
+        String ways = switch (direction){
+            case 1 -> "север";
+            case 2 -> "юг";
+            case 3 -> "запад";
+            case 4 -> "восток";
+            default -> "";
+        };
+        return ways;
     }
 
     public int subtask_7_if(double vx, double vy, double vz, double speed, double time, double wall) {
@@ -72,7 +106,15 @@ public class Task_1 implements Task_1_base {
         // 2 - аргументы функции заданы некорректно
         // Допустимой погрешностью при сравнении переменных типа double считать 0.000001
         // ------------------------------------------------------------------------------------
-        return 0; // Замените данный оператор кодом, решающим поставленную задачу.
+        double range = Math.sqrt(wall*wall*Math.abs(vx) + wall*wall*Math.abs(vy) + wall*wall*Math.abs(vz));
+        if (time > 0 && speed > 0)
+            if ((range/speed <= time && vx != 0) || Math.abs(range/speed - time) <= 0.000001)
+                return 1;
+            else
+                return 0;
+        else
+            return 2;
+
     }
 
     public int subtask_8_if(double k1, double b1, double k2, double b2) {
@@ -83,6 +125,13 @@ public class Task_1 implements Task_1_base {
         // 3 - если совпадают
         // Допустимой погрешностью при сравнении переменных типа double считать 0.000001
         // ------------------------------------------------------------------------------------
-        return 0; // Замените данный оператор кодом, решающим поставленную задачу.
+        if (k1 != k2) {
+            return 2;
+        }
+        else if ((k1 == k2)  && (b1 != b2)) {
+            return 1;
+        }
+        else
+            return 3;
     }
 }
