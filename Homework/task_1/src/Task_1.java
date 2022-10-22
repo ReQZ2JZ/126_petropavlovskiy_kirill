@@ -1,18 +1,23 @@
 public class Task_1 implements Task_1_base {
-    @Override
     public int subtask_1_if(int first, int second, int third) {
-        // Вычислить и вернуть минимальный из трех полученных аргументов (first, second, third)
-        // ------------------------------------------------------------------------------------
+        if ((first<second) && (first<third)) {
+            System.out.println(first);
+        } else if ((second<first) && (second<third)) {
+            System.out.println(second);
+        }
+        else {
+            System.out.println(third);
+        }
         return 0; // Замените данный оператор кодом, решающим поставленную задачу.
     }
-    @Override
+
     public boolean subtask_2_if(int year) {
         // Проверить, является ли год, переданный в параметре year, високосным.
         // Високосный год - это год, кратный четырем, но не кратный 100, либо кратный 400
         // ------------------------------------------------------------------------------------
         return false; // Замените данный оператор кодом, решающим поставленную задачу.
     }
-    @Override
+
     public int subtask_3_if(double x, double y, double left_up_x, double left_up_y, double width, double height) {
         // Проверить, лежит ли точка с координатами (x, y) внутри невырожденного квадрата
         // со сторонами, параллельными осям координат, левый верхний угол которого имеет
@@ -26,7 +31,7 @@ public class Task_1 implements Task_1_base {
         // ------------------------------------------------------------------------------------
         return 0; // Замените данный оператор кодом, решающим поставленную задачу.
     }
-    @Override
+
     public int subtask_4_if(double x0, double y0, double k, double b) {
         // Проверить, как расположена точка с координатами (x0, y0)
         // относительно прямой y = kx + b
@@ -38,7 +43,7 @@ public class Task_1 implements Task_1_base {
         // ------------------------------------------------------------------------------------
         return 0; // Замените данный оператор кодом, решающим поставленную задачу.
     }
-    @Override
+
     public String subtask_5_switch(int day_od_week) {
         // По номеру дня недели day_od_week вернуть его название на русском языке, записанное
         // с большой буквы. Дни едели отсчитываются с единицы. Если номер задан некорректно,
@@ -46,7 +51,7 @@ public class Task_1 implements Task_1_base {
         // ------------------------------------------------------------------------------------
         return ""; // Замените данный оператор кодом, решающим поставленную задачу.
     }
-    @Override
+
     public String subtask_6_switch(int direction) {
         // По заданному направлению direction вернуть его название:
         // 1 - север
@@ -57,7 +62,7 @@ public class Task_1 implements Task_1_base {
         // ------------------------------------------------------------------------------------
         return ""; // Замените данный оператор кодом, решающим поставленную задачу.
     }
-    @Override
+
     public int subtask_7_if(double vx, double vy, double vz, double speed, double time, double wall) {
         // Проверить, достигнет ли снаряд, летяший из точки (0, 0, 0)
         // в направлении (vx, vy, vz) со скоростью speed стены, параллельной плоскости OYZ,
@@ -69,7 +74,7 @@ public class Task_1 implements Task_1_base {
         // ------------------------------------------------------------------------------------
         return 0; // Замените данный оператор кодом, решающим поставленную задачу.
     }
-    @Override
+
     public int subtask_8_if(double k1, double b1, double k2, double b2) {
         // Проверить, как друг относительно друга располагаются прямые y = k1*x + b1 и
         // y = k2*x + b2. Вернуть
